@@ -19,10 +19,10 @@ def multi_sort(arr, cmp, method="None"):
 # must be in-place sort
 def merge_sort(arr,cmp):
     if len(arr) > 1:
-        m = len(arr)//2
-        l = arr[:mid]
-        r = arr[mid:]
-        merge_sort(l,cmp)
+        m = len(arr)//2 # middle of array
+        l = arr[:mid] # left of array
+        r = arr[mid:] # right of array
+        merge_sort(l,cmp) # recursion calls
         merge_sort(r,cmp)
 
         x = len(l)
@@ -54,7 +54,7 @@ def quick_sort(arr,cmp):
         p = arr[0]
         l = []
         r = []
-        for i in range (1,len(arr)):
+        for i in range (1,len(arr)): # sorts elements in increasing order
             c = cmp(arr[1],p)
             if c > 0:
                 r.append(arr[i])
@@ -70,7 +70,7 @@ def quick_sort(arr,cmp):
         arr[x:n-y] = [p]*(n-x-y)
         arr[n-y:] = r
 
-def cmp(x,y):
+def cmp(x,y): # helper function for quicksort
     if y > x:
         return -1
     elif x == y:
